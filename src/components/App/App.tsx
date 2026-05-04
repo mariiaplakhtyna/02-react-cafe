@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import './App.module.css';
 
 import CafeInfo from '../CafeInfo/CafeInfo';
 import VoteOptions from '../VoteOptions/VoteOptions';
@@ -21,14 +21,14 @@ export default function App() {
     bad: 0,
   });
 
-  const updateFeedback = (type: FeedbackType) => {
+  const updateVoteOptions = (type: FeedbackType) => {
     setVotes({
       ...votes,
       [type]: votes[type] + 1,
     });
   };
 
-  const resetFeedback = () => {
+  const resetVoteOptions = () => {
     setVotes({
       good: 0,
       neutral: 0,
@@ -47,8 +47,8 @@ export default function App() {
       <CafeInfo />
 
       <VoteOptions
-        updateFeedback={updateFeedback}
-        resetFeedback={resetFeedback}
+        updateVoteOptions={ updateVoteOptions}
+        resetVoteOptions={resetVoteOptions}
         canReset={totalVotes > 0}
       />
 
