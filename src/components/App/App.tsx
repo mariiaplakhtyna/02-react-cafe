@@ -1,3 +1,4 @@
+import type { Votes } from '../../types/votes';
 import { useState } from 'react';
 import './App.module.css';
 
@@ -6,13 +7,6 @@ import VoteOptions from '../VoteOptions/VoteOptions';
 import VoteStats from '../VoteStats/VoteStats';
 import Notification from '../Notification/Notification';
 
-type Votes = {
-  good: number;
-  neutral: number;
-  bad: number;
-};
-
-type FeedbackType = keyof Votes;
 
 export default function App() {
   const [votes, setVotes] = useState<Votes>({
@@ -21,12 +15,14 @@ export default function App() {
     bad: 0,
   });
 
-  const updateVoteOptions = (type: FeedbackType) => {
-    setVotes({
-      ...votes,
-      [type]: votes[type] + 1,
-    });
-  };
+  type VotesType = keyof Votes;
+
+const updateVoteOptions = (type: VotesType) => {
+  setVotes({
+    ...votes,
+    [type]: votes[type] + 1,
+  });
+};
 
   const resetVoteOptions = () => {
     setVotes({
