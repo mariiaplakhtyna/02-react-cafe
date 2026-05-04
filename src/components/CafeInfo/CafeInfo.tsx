@@ -1,6 +1,6 @@
-import css from './Description.module.css';
+import css from './CafeInfo.module.css';
 
-export default function Description() {
+export default function CafeInfo() {
   return (
     <div>
       <h1 className={css.title}>Sip Happens Café</h1>

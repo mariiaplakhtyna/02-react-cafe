@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './App.css';
 
-import Description from './components/Description/Description';
-import Options from './components/Options/Options';
-import Feedback from './components/Feedback/Feedback';
-import Notification from './components/Notification/Notification';
+import CafeInfo from '../CafeInfo/CafeInfo';
+import Options from '../Options/Options';
+import Feedback from '../Feedback/Feedback';
+import Notification from '../Notification/Notification';
 
 type Votes = {
   good: number;
@@ -44,7 +44,7 @@ export default function App() {
 
   return (
     <div className="container">
-      <Description />
+      <CafeInfo />
 
       <Options
         updateFeedback={updateFeedback}
