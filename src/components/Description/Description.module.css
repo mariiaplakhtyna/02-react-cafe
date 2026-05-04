@@ -1,11 +1,12 @@
-.description {
-  margin-bottom: 20px;
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
-.description h1 {
-  margin-bottom: 10px;
-}
-
-.description p {
+.text {
+  font-size: 16px;
   color: #555;
+  max-width: 300px;
+  margin: 0 auto;
 }
