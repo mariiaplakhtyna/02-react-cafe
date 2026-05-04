@@ -1,12 +1,11 @@
-import type { Votes } from '../../types/votes';
 import { useState } from 'react';
-import './App.module.css';
+import type { Votes, VoteType } from '../../types/votes';
+import css from './App.module.css';
 
 import CafeInfo from '../CafeInfo/CafeInfo';
 import VoteOptions from '../VoteOptions/VoteOptions';
 import VoteStats from '../VoteStats/VoteStats';
 import Notification from '../Notification/Notification';
-
 
 export default function App() {
   const [votes, setVotes] = useState<Votes>({
@@ -15,16 +14,14 @@ export default function App() {
     bad: 0,
   });
 
-  type VotesType = keyof Votes;
+  const onVote = (type: VoteType) => {
+    setVotes(prevVotes => ({
+      ...prevVotes,
+      [type]: prevVotes[type] + 1,
+    }));
+  };
 
-const updateVoteOptions = (type: VotesType) => {
-  setVotes({
-    ...votes,
-    [type]: votes[type] + 1,
-  });
-};
-
-  const resetVoteOptions = () => {
+  const onReset = () => {
     setVotes({
       good: 0,
       neutral: 0,
@@ -39,12 +36,12 @@ const updateVoteOptions = (type: VotesType) => {
     : 0;
 
   return (
-    <div className="container">
+    <div className={css.container}>
       <CafeInfo />
 
       <VoteOptions
-        updateVoteOptions={ updateVoteOptions}
-        resetVoteOptions={resetVoteOptions}
+        onVote={onVote}
+        onReset={onReset}
         canReset={totalVotes > 0}
       />
 
