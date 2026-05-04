@@ -1,4 +1,4 @@
-import css from './Options.module.css';
+import css from './VoteOptions.module.css';
 
 type Props = {
   updateFeedback: (type: 'good' | 'neutral' | 'bad') => void;
@@ -6,7 +6,7 @@ type Props = {
   canReset: boolean;
 };
 
-export default function Options({
+export default function VoteOptions({
   updateFeedback,
   resetFeedback,
   canReset,
