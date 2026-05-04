@@ -1,0 +1,9 @@
+.feedback {
+  text-align: left;
+  margin: 0 auto;
+  width: 200px;
+}
+
+.feedback p {
+  margin: 5px 0;
+}
