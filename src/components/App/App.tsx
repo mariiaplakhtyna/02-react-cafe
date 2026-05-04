@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './App.css';
 
 import CafeInfo from '../CafeInfo/CafeInfo';
-import Options from '../VoteOptions/VoteOptions';
-import Feedback from '../Feedback/Feedback';
+import VoteOptions from '../VoteOptions/VoteOptions';
+import VoteStats from '../VoteStats/VoteStats';
 import Notification from '../Notification/Notification';
 
 type Votes = {
@@ -46,14 +46,14 @@ export default function App() {
     <div className="container">
       <CafeInfo />
 
-      <Options
+      <VoteOptions
         updateFeedback={updateFeedback}
         resetFeedback={resetFeedback}
         canReset={totalVotes > 0}
       />
 
       {totalVotes > 0 ? (
-        <Feedback
+        <VoteStats
           votes={votes}
           totalVotes={totalVotes}
           positiveRate={positiveRate}
